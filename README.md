@@ -1,15 +1,24 @@
 # SafeWorkPay
 
 A decentralized freelancing platform powered by blockchain and AI to ensure secure, transparent, and fair transactions between clients and freelancers.
+## submission information
+
+Submited to the TechFairness hackathon 2025
+
+link https://www.hackquest.io/projects/Fair-Pay
+
+live link https://fair-pay-freelancing.vercel.app/
+
+youtube video https://www.youtube.com/watch?v=C-gQ17mcFEM
 
 ## Project Information
 
-### Project Name
 **SafeWorkPay**
 
 ---
 
 ### Problem Statement
+
 - Freelancing platforms often face **payment disputes and trust issues**.
 - Clients may **withhold funds** even when work is completed.
 - Developers may **fail to deliver** after receiving payment.
@@ -19,6 +28,7 @@ A decentralized freelancing platform powered by blockchain and AI to ensure secu
 ---
 
 ### Solution Overview
+
 - **SafeWorkPay** is a **decentralized freelancing platform** powered by **blockchain and AI**.
 - Clients deposit funds into a **smart contract**, which **holds the money in escrow**.
 - **Funds are released** only when **full projects are completed and verified**.
@@ -29,10 +39,10 @@ A decentralized freelancing platform powered by blockchain and AI to ensure secu
 ---
 
 ### Project Description
+
 - Clients can **post projects** and **deposit funds** into smart contracts.
 - Developers **bid** on projects and **submit full projects** as they complete work.
 - If a dispute arises, an **AI Agent** checks the **completeness of code** based on requirements and completion percentage; funds are released to the developer and remaining to the client.
-
 
 ## 📸 Screenshots
 
@@ -63,8 +73,11 @@ Below are screenshots showcasing different pages and functionalities of **SafeWo
 > Track and manage project updates, delete projects, and view bids.
 
 ---
-
 ### 4. 💼 Bidding Interface
+
+![Place a bid](public/place-bid.png)
+
+> View bids on a project.
 
 ![Bidding](public/view-bids.png)
 
@@ -141,6 +154,7 @@ Below are screenshots showcasing different pages and functionalities of **SafeWo
 To run the SafeWorkPay frontend, follow these steps:
 
 1. **Install Dependencies**
+
    ```bash
    yarn
    ```
@@ -151,11 +165,14 @@ To run the SafeWorkPay frontend, follow these steps:
    ```
 
 **Note**: The smart contracts are already deployed on the Sepolia testnet at the following addresses:
+
 - DappWorks: `0xE9F9bcD880e71FFD32F64D874Fa889c7163CDb7d`
 - USDT: `0xb2d7EFb7393fcFCC7C76dcA5da05c8177bA1F6fF`
 
 **Environment Setup**: Make sure to add your MetaMask private key, CometChat credentials, and RPC URL in the `.env` file for the application to function correctly.
+
 #### add the environment variables in the .env file
+
 ```
  REACT_APP_COMET_CHAT_APP_ID=
  REACT_APP_COMET_CHAT_AUTH_KEY=
@@ -163,7 +180,7 @@ To run the SafeWorkPay frontend, follow these steps:
  REACT_APP_RPC_URL=http://127.0.0.1:8545
  SEPOLIA_RPC_URL=
  PRIVATE_KEY=
- 
+
 ```
 
 ## Running the AI Agent
@@ -182,8 +199,9 @@ The AI Agent is a separate component that assists in dispute resolution by evalu
    - Start the frontend:
      ```bash
      yarn start
+     ```
 
- change file name .env.example to .env and add the environment variables in the .env file in frontend directory.
+change file name .env.example to .env and add the environment variables in the .env file in frontend directory.
 
 2. **Backend Setup for AI Agent**
    - Navigate to the backend directory of the AI Agent:
@@ -221,4 +239,4 @@ For any issues or contributions, please open an issue or pull request on this re
 
 ---
 
-*Built with ❤️ by the SafeWorkPay team*
+_Built with ❤️ by the SafeWorkPay team_
