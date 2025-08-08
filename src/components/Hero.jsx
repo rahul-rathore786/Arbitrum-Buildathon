@@ -1,5 +1,11 @@
 import React from "react";
-import { FaPlus, FaSearch, FaBriefcase, FaArrowRight } from "react-icons/fa";
+import {
+  FaPlus,
+  FaBriefcase,
+  FaArrowRight,
+  FaBrain,
+  FaUserSecret,
+} from "react-icons/fa";
 import { useGlobalState, setGlobalState } from "../store";
 import JobListingCard from "./JobListingCard";
 
@@ -67,21 +73,21 @@ const Hero = () => {
 
           <div className="card bg-white p-4 flex items-center shadow-elevated">
             <div className="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center text-secondary-600 mr-4">
-              <FaBriefcase className="text-xl" />
+              <FaUserSecret className="text-xl" />
             </div>
             <div>
-              <div className="text-2xl font-bold">24/7</div>
-              <div className="text-gray-500 text-sm">Secure Payments</div>
+              <div className="text-2xl font-bold">100%</div>
+              <div className="text-gray-500 text-sm">Blockchain Secured</div>
             </div>
           </div>
 
           <div className="card bg-white p-4 flex items-center shadow-elevated">
             <div className="w-12 h-12 rounded-full bg-accent-100 flex items-center justify-center text-accent-600 mr-4">
-              <FaBriefcase className="text-xl" />
+              <FaBrain className="text-xl" />
             </div>
             <div>
-              <div className="text-2xl font-bold">100%</div>
-              <div className="text-gray-500 text-sm">Blockchain Secured</div>
+              <div className="text-2xl font-bold">AI</div>
+              <div className="text-gray-500 text-sm">Dispute Resolution</div>
             </div>
           </div>
         </div>
