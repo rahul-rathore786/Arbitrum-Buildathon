@@ -1,16 +1,12 @@
-# SafeWorkPay
-
 A decentralized freelancing platform powered by blockchain and AI to ensure secure, transparent, and fair transactions between clients and freelancers.
 
-## submission information
+### Submission Information
 
-Submited to the TechFairness hackathon 2025
+Submitted to the Hedera Hello Future: Origins Hackathon 2025
 
-link https://www.hackquest.io/projects/Fair-Pay
-
-live link https://fair-pay-freelancing.vercel.app/
-
-youtube video https://www.youtube.com/watch?v=C-gQ17mcFEM
+Hackathon submission:https://dorahacks.io/buidl/30774
+Live link:https://safe-work-pay-v3.vercel.app/
+Presentation video: https://youtu.be/5vzjYtTKsVs
 
 ## Project Information
 
@@ -158,18 +154,18 @@ To run the SafeWorkPay frontend, follow these steps:
 1. **Install Dependencies**
 
    ```bash
-   yarn
+   npm install
    ```
 
 2. **Start the Frontend**
    ```bash
-   yarn start
+   pnpm start
    ```
 
-**Note**: The smart contracts are already deployed on the Sepolia testnet at the following addresses:
+**Note**: The smart contracts are already deployed on the Hedera testnet at the following addresses:
 
-- DappWorks: `0xE9F9bcD880e71FFD32F64D874Fa889c7163CDb7d`
-- USDT: `0xb2d7EFb7393fcFCC7C76dcA5da05c8177bA1F6fF`
+- DappWorks: `0x8961AeA9D0118BD1f6E0837CAa8759835A7b51A8`
+- USDT: `0x30c7e88C3A04C6bb59d2C604A0c135447dBA4099`
 
 **Environment Setup**: Make sure to add your MetaMask private key, CometChat credentials, and RPC URL in the `.env` file for the application to function correctly.
 
@@ -180,9 +176,6 @@ To run the SafeWorkPay frontend, follow these steps:
  REACT_APP_COMET_CHAT_AUTH_KEY=
  REACT_APP_COMET_CHAT_REGION=
  REACT_APP_RPC_URL=http://127.0.0.1:8545
- SEPOLIA_RPC_URL=
- PRIVATE_KEY=
-
 ```
 
 ## Running the AI Agent
@@ -190,17 +183,17 @@ To run the SafeWorkPay frontend, follow these steps:
 The AI Agent is a separate component that assists in dispute resolution by evaluating code completeness. To run it:
 
 1. **Frontend Setup for AI Agent**
-   - Navigate to the frontend directory:
+   - Navigate to the AI-Agent/frontend directory:
      ```bash
-     cd frontend
+     cd AI-Agent/frontend
      ```
    - Install dependencies:
      ```bash
-     yarn
+     pnpm install
      ```
    - Start the frontend:
      ```bash
-     yarn start
+     pnpm start
      ```
 
 change file name .env.example to .env and add the environment variables in the .env file in frontend directory.
@@ -208,15 +201,15 @@ change file name .env.example to .env and add the environment variables in the .
 2. **Backend Setup for AI Agent**
    - Navigate to the backend directory of the AI Agent:
      ```bash
-     cd backend
+     cd AI-Agent/backend
      ```
    - Install dependencies:
      ```bash
-     yarn
+     pnpm install
      ```
    - Start the backend server:
      ```bash
-     yarn start
+     pnpm start
      ```
 
 **Note**: Ensure you add your Gemini API key in the appropriate configuration file .env for the AI Agent to work correctly.
@@ -226,8 +219,8 @@ change file name .env.example to .env and add the environment variables in the .
 - **Frontend**: React, React Router, Tailwind CSS, react-hooks-global-state, ethers.js, react-toastify
 - **Backend (Smart Contracts)**: Solidity, Hardhat, OpenZeppelin Contracts
 - **Chat Functionality**: CometChat
-- **Package Manager**: Yarn
-- **Blockchain**: Ethereum (Sepolia Testnet)
+- **Package Manager**: pnpm
+- **Blockchain**: Hedera
 - **AI**: Custom AI model for code evaluation and dispute resolution (integrated with Gemini API)
 
 ## Additional Notes
