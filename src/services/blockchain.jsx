@@ -14,7 +14,7 @@ const UsdtAddress = addresses.USDT;
 const UsdtABI = UsdtAbi.abi;
 
 // Default network for the application
-const DEFAULT_NETWORK_KEY = "HEDERA";
+const DEFAULT_NETWORK_KEY = "HYPERION";
 const DEFAULT_NETWORK = NETWORKS[DEFAULT_NETWORK_KEY];
 
 let tx;
