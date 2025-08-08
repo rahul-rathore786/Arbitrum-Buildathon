@@ -21,7 +21,9 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
             <div className="bg-white bg-opacity-20 p-2 rounded-full mr-3">
               <FaGasPump className="text-white text-xl" />
             </div>
-            <h2 className="text-xl font-bold text-white flex-grow">Insufficient Gas</h2>
+            <h2 className="text-xl font-bold text-white flex-grow">
+              Insufficient Gas
+            </h2>
             <button
               onClick={onClose}
               className="text-white hover:text-gray-200 transition-colors"
@@ -30,17 +32,20 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
             </button>
           </div>
         </div>
-        
+
         {/* Content */}
         <div className="p-6">
           <p className="text-gray-700 mb-4">
-            You need <span className="font-semibold">hMETIS</span> (Hyperion testnet tokens) to pay for gas fees. 
-            Visit the Hyperion faucet to get free test tokens:
+            You need <span className="font-semibold">HBAR</span> (Hedera testnet
+            tokens) to pay for gas fees. Visit the Hedera faucet to get free
+            test tokens:
           </p>
-          
+
           {/* Wallet address section */}
           <div className="mb-5 bg-gray-50 border border-gray-200 rounded-md p-4">
-            <p className="text-sm text-gray-600 mb-2 font-medium">Your wallet address:</p>
+            <p className="text-sm text-gray-600 mb-2 font-medium">
+              Your wallet address:
+            </p>
             <div className="flex items-center justify-between bg-white border border-gray-200 rounded-md p-3">
               <div className="text-gray-800 text-sm truncate pr-2 font-mono">
                 {walletAddress}
@@ -57,20 +62,21 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
               </button>
             </div>
           </div>
-          
+
           {/* Action button */}
           <a
-            href="https://hype-faucet.metis.io/"
+            href="https://portal.hedera.com/faucet"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-3 px-6 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center mb-4"
           >
-            Get Free hMETIS Tokens
+            Get Free HBAR Tokens
           </a>
-          
+
           <div className="text-sm text-gray-500 mt-4 bg-gray-50 p-3 rounded-md border-l-4 border-primary-400">
             <p>
-              After receiving tokens, return to SafeWorkPay to continue using the platform.
+              After receiving tokens, return to SafeWorkPay to continue using
+              the platform.
             </p>
           </div>
         </div>
