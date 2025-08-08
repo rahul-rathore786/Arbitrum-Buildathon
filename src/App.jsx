@@ -12,7 +12,12 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
-import { switchToHyperionNetwork, addHyperionNetwork, getNativeBalance } from "./services/blockchain";
+import {
+  switchToNetwork,
+  addNetwork,
+  getNativeBalance,
+  DEFAULT_NETWORK,
+} from "./services/blockchain";
 import { NetworkModal, GasFeeModal, MetaMaskModal } from "./components";
 import { useEffect } from "react";
 import { isWalletConnected, loadData } from "./services/blockchain";
@@ -59,11 +64,12 @@ const App = () => {
         setShowMetaMaskModal(true);
         return;
       }
-      
+
       if (!connectedAccount) return;
-      
+
       try {
-        const switched = await switchToHyperionNetwork();
+        // Use the default network
+        const switched = await switchToNetwork();
         if (!switched) {
           // Network not added, prompt user
           setShowNetworkModal(true);
@@ -91,7 +97,7 @@ const App = () => {
       }
     };
     checkWallet();
-    
+
     if (connectedAccount) {
       loadData();
     }
@@ -100,7 +106,6 @@ const App = () => {
   useEffect(() => {
     if (dataUpdate > 0) {
       loadData();
-
     }
   }, [dataUpdate]);
 
@@ -172,8 +177,9 @@ const App = () => {
       <NetworkModal
         visible={showNetworkModal}
         onClose={() => setShowNetworkModal(false)}
-        onAddNetwork={async () => {
-          const added = await addHyperionNetwork();
+        networkKey="HEDERA"
+        onAddNetwork={async (networkKey) => {
+          const added = await addNetwork(networkKey);
           if (added) {
             setShowNetworkModal(false);
             window.location.reload();

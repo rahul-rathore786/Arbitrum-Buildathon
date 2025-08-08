@@ -1,8 +1,9 @@
 import { setGlobalState, getGlobalState } from "../store";
-import DappWorksAbi from "../abis/src/contracts/DappWorks.sol/DappWorks.json";
-import UsdtAbi from "../abis/src/contracts/USDT.sol/USDT.json";
+import DappWorksAbi from "../abis/contracts/DappWorks.sol/DappWorks.json";
+import UsdtAbi from "../abis/contracts/USDT.sol/USDT.json";
 import { ethers } from "ethers";
 import { logOutWithCometChat } from "./chat";
+import { NETWORKS } from "../utils/chain";
 
 const { ethereum } = window;
 import addresses from "../abis/contractAddress.json";
@@ -11,19 +12,9 @@ const DappWorksAddress = addresses.DappWorks;
 const DappWorksABI = DappWorksAbi.abi;
 const UsdtAddress = addresses.USDT;
 const UsdtABI = UsdtAbi.abi;
-const HYPERION_CHAIN_ID_DEC = 133717;
-const HYPERION_CHAIN_ID_HEX = "0x20A55"; // 133717
-const HYPERION_PARAMS = {
-  chainId: HYPERION_CHAIN_ID_HEX,
-  chainName: "Hyperion (Testnet)",
-  nativeCurrency: {
-    name: "Hyperion Metis",
-    symbol: "hMETIS",
-    decimals: 18,
-  },
-  rpcUrls: ["https://hyperion-testnet.metisdevops.link"],
-  blockExplorerUrls: ["https://hyperion-testnet-explorer.metisdevops.link"],
-};
+
+// Default network for the application
+const DEFAULT_NETWORK = NETWORKS.HEDERA;
 
 let tx;
 
@@ -443,7 +434,7 @@ const getJob = async (id) => {
 
 const loadData = async () => {
   if (!ethereum) return;
-  
+
   try {
     await getJobs();
     await getMyJobs();
@@ -489,12 +480,17 @@ const reportError = (error) => {
   console.log(error);
 };
 
-const switchToHyperionNetwork = async () => {
+/**
+ * Switch to a specific network
+ * @param {string} networkKey - The network key from NETWORKS object
+ * @returns {Promise<boolean>} - True if successful, false otherwise
+ */
+const switchToNetwork = async (networkKey = "HEDERA") => {
   if (!ethereum) return false;
   try {
     await ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: HYPERION_CHAIN_ID_HEX }],
+      params: [{ chainId: NETWORKS[networkKey].chainId }],
     });
     return true;
   } catch (switchError) {
@@ -502,20 +498,42 @@ const switchToHyperionNetwork = async () => {
     if (switchError.code === 4902) {
       return false;
     }
-    throw switchError;
+    console.error(
+      `Error switching to ${NETWORKS[networkKey].chainName}:`,
+      switchError
+    );
+    return false;
   }
 };
 
-const addHyperionNetwork = async () => {
+/**
+ * Add a network to MetaMask
+ * @param {string} networkKey - The network key from NETWORKS object
+ * @returns {Promise<boolean>} - True if successful, false otherwise
+ */
+const addNetwork = async (networkKey = "HEDERA") => {
   if (!ethereum) return false;
+
+  const networkConfig = NETWORKS[networkKey];
+
+  // Create a new object with only the keys MetaMask accepts.
+  // This prevents errors from custom keys like 'chainIdDecimal'.
+  const paramsToAdd = {
+    chainId: networkConfig.chainId,
+    chainName: networkConfig.chainName,
+    nativeCurrency: networkConfig.nativeCurrency,
+    rpcUrls: networkConfig.rpcUrls,
+    blockExplorerUrls: networkConfig.blockExplorerUrls,
+  };
+
   try {
     await ethereum.request({
       method: "wallet_addEthereumChain",
-      params: [HYPERION_PARAMS],
+      params: [paramsToAdd], // Pass the cleaned object
     });
     return true;
   } catch (error) {
-    console.error("Failed to add Hyperion network", error);
+    console.error(`Failed to add ${networkConfig.chainName} network`, error);
     return false;
   }
 };
@@ -545,6 +563,7 @@ export {
   getDisputedJobs,
   getUsdtBalance,
   getNativeBalance,
-  switchToHyperionNetwork,
-  addHyperionNetwork,
+  switchToNetwork,
+  addNetwork,
+  DEFAULT_NETWORK,
 };
