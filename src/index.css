@@ -121,4 +121,89 @@ code {
   .subtle-text {
     @apply text-gray-500;
   }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+  }
+  
+  .modal-container {
+    @apply flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0;
+  }
+  
+  .modal-backdrop {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+  }
+  
+  .card-header {
+    @apply p-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-yellow-50;
+  }
+  
+  .header-content {
+    @apply flex items-center;
+  }
+  
+  .header-icon {
+    @apply flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r from-blue-500 to-yellow-500 text-white mr-4;
+  }
+  
+  .header-text h2 {
+    @apply text-xl font-bold bg-gradient-to-r from-blue-600 to-yellow-600 bg-clip-text text-transparent;
+  }
+  
+  .header-text p {
+    @apply text-sm text-gray-500;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .info-box {
+    @apply flex p-4 bg-blue-50 rounded-lg mb-6;
+  }
+  
+  .info-icon {
+    @apply text-blue-500 mr-4 text-xl;
+  }
+  
+  .info-content p {
+    @apply text-sm text-gray-700 mb-2;
+  }
+  
+  .highlight {
+    @apply font-medium text-blue-600;
+  }
+  
+  .text-muted {
+    @apply text-gray-500;
+  }
+  
+  .token-details {
+    @apply bg-gray-50 rounded-lg p-4;
+  }
+  
+  .token-info {
+    @apply flex justify-between py-2 border-b border-gray-200 last:border-0;
+  }
+  
+  .token-label {
+    @apply text-sm font-medium text-gray-600;
+  }
+  
+  .token-value {
+    @apply text-sm text-gray-800;
+  }
+  
+  .card-footer {
+    @apply p-4 bg-gray-50 border-t border-gray-200;
+  }
+  
+  .btn-group {
+    @apply flex justify-end space-x-3;
+  }
+  
+  .btn-loading {
+    @apply opacity-75 cursor-not-allowed;
+  }
 }
