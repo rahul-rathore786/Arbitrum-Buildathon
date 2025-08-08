@@ -177,7 +177,7 @@ const App = () => {
       <NetworkModal
         visible={showNetworkModal}
         onClose={() => setShowNetworkModal(false)}
-        networkKey="HEDERA"
+        networkKey={DEFAULT_NETWORK.chainName}
         onAddNetwork={async (networkKey) => {
           const added = await addNetwork(networkKey);
           if (added) {

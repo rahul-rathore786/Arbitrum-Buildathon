@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { NETWORKS } from "../utils/chain";
+const NetworkModal = ({ visible, onClose, onAddNetwork, networkKey }) => {
+  // Find the network key that matches the incoming networkKey (which is a chainName)
+  const initialNetworkKey = Object.keys(NETWORKS).find(key => NETWORKS[key].chainName === networkKey) || Object.keys(NETWORKS)[0];
+  const [selectedNetworkKey, setSelectedNetworkKey] = useState(initialNetworkKey);
 
-const NetworkModal = ({ visible, onClose, onAddNetwork, networkKey = "HEDERA" }) => {
-  const [selectedNetwork, setSelectedNetwork] = useState(networkKey);
   
   if (!visible) return null;
   
-  const network = NETWORKS[selectedNetwork];
+  const network = NETWORKS[selectedNetworkKey];
   
   const handleNetworkChange = (e) => {
-    setSelectedNetwork(e.target.value);
+    setSelectedNetworkKey(e.target.value);
   };
   
   const handleAddNetwork = () => {
-    onAddNetwork(selectedNetwork);
+    onAddNetwork(selectedNetworkKey);
   };
 
   return (
@@ -41,7 +43,7 @@ const NetworkModal = ({ visible, onClose, onAddNetwork, networkKey = "HEDERA" })
           </label>
           <select
             id="network-select"
-            value={selectedNetwork}
+            value={selectedNetworkKey}
             onChange={handleNetworkChange}
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
           >

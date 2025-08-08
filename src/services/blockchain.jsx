@@ -14,7 +14,8 @@ const UsdtAddress = addresses.USDT;
 const UsdtABI = UsdtAbi.abi;
 
 // Default network for the application
-const DEFAULT_NETWORK = NETWORKS.HEDERA;
+const DEFAULT_NETWORK_KEY = "HEDERA";
+const DEFAULT_NETWORK = NETWORKS[DEFAULT_NETWORK_KEY];
 
 let tx;
 
@@ -485,7 +486,7 @@ const reportError = (error) => {
  * @param {string} networkKey - The network key from NETWORKS object
  * @returns {Promise<boolean>} - True if successful, false otherwise
  */
-const switchToNetwork = async (networkKey = "HEDERA") => {
+const switchToNetwork = async (networkKey = DEFAULT_NETWORK_KEY) => {
   if (!ethereum) return false;
   try {
     await ethereum.request({
@@ -511,7 +512,7 @@ const switchToNetwork = async (networkKey = "HEDERA") => {
  * @param {string} networkKey - The network key from NETWORKS object
  * @returns {Promise<boolean>} - True if successful, false otherwise
  */
-const addNetwork = async (networkKey = "HEDERA") => {
+const addNetwork = async (networkKey = DEFAULT_NETWORK_KEY) => {
   if (!ethereum) return false;
 
   const networkConfig = NETWORKS[networkKey];
