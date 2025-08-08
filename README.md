@@ -1,6 +1,7 @@
 # SafeWorkPay
 
 A decentralized freelancing platform powered by blockchain and AI to ensure secure, transparent, and fair transactions between clients and freelancers.
+
 ## submission information
 
 Submited to the TechFairness hackathon 2025
@@ -73,6 +74,7 @@ Below are screenshots showcasing different pages and functionalities of **SafeWo
 > Track and manage project updates, delete projects, and view bids.
 
 ---
+
 ### 4. 💼 Bidding Interface
 
 ![Place a bid](public/place-bid.png)

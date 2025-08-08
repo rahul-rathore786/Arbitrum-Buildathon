@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-require('dotenv').config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,17 +12,17 @@ app.use(bodyParser.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-app.post('/api/evaluate', async (req, res) => {
+app.post("/api/evaluate", async (req, res) => {
   const { title, description, gitcode } = req.body;
 
   if (!title || !description || !gitcode) {
-    return res.status(400).json({ error: 'Please provide all fields.' });
+    return res.status(400).json({ error: "Please provide all fields." });
   }
 
   try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
 
-        const prompt = `
+    const prompt = `
         # ROLE: You are a technical project reviewer.
         # TASK: 
         Evaluate the completion status of the software project described below. Analyze the project's stated goals against the provided codebase.
@@ -51,12 +51,17 @@ app.post('/api/evaluate', async (req, res) => {
     const text = await response.text();
 
     // Clean the response to get valid JSON
-    const jsonResponse = JSON.parse(text.replace(/```json/g, '').replace(/```/g, '').trim());
+    const jsonResponse = JSON.parse(
+      text
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
+        .trim()
+    );
 
     res.json(jsonResponse);
   } catch (error) {
-    console.error('Error evaluating project:', error);
-    res.status(500).json({ error: 'Failed to evaluate project.' });
+    console.error("Error evaluating project:", error);
+    res.status(500).json({ error: "Failed to evaluate project." });
   }
 });
 
