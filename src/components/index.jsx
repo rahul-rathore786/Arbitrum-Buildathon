@@ -18,6 +18,7 @@ import ResolveDispute from './ResolveDispute'
 import NetworkModal from './NetworkModal'
 import GasFeeModal from './GasFeeModal'
 import MetaMaskModal from './MetaMaskModal'
+import UsdtFaucetModal from './UsdtFaucetModal'
 
 export {
   Header,
@@ -40,4 +41,5 @@ export {
   NetworkModal,
   GasFeeModal,
   MetaMaskModal,
+  UsdtFaucetModal,
 }

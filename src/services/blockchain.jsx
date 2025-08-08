@@ -539,6 +539,22 @@ const addNetwork = async (networkKey = DEFAULT_NETWORK_KEY) => {
   }
 };
 
+// Call the USDT faucet to mint 1000 tokens
+const callUsdtFaucet = async () => {
+  if (!ethereum) return alert("Please install Metamask");
+  return new Promise(async (resolve, reject) => {
+    try {
+      const contract = await getUsdtContract();
+      tx = await contract.faucet();
+      await tx.wait();
+      resolve(tx);
+    } catch (err) {
+      reportError(err);
+      reject(err);
+    }
+  });
+};
+
 export {
   connectWallet,
   isWalletConnected,
@@ -567,4 +583,5 @@ export {
   switchToNetwork,
   addNetwork,
   DEFAULT_NETWORK,
+  callUsdtFaucet,
 };

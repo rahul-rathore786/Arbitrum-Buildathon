@@ -16,9 +16,10 @@ import {
   switchToNetwork,
   addNetwork,
   getNativeBalance,
+  getUsdtBalance,
   DEFAULT_NETWORK,
 } from "./services/blockchain";
-import { NetworkModal, GasFeeModal, MetaMaskModal } from "./components";
+import { NetworkModal, GasFeeModal, MetaMaskModal, UsdtFaucetModal } from "./components";
 import { useEffect } from "react";
 import { isWalletConnected, loadData } from "./services/blockchain";
 import AuthenticatedRoutes from "./utils/AuthenticatedRoutes";
@@ -48,6 +49,7 @@ const App = () => {
   const [showNetworkModal, setShowNetworkModal] = useState(false);
   const [showGasFeeModal, setShowGasFeeModal] = useState(false);
   const [showMetaMaskModal, setShowMetaMaskModal] = useState(false);
+  const [showUsdtFaucetModal, setShowUsdtFaucetModal] = useState(false);
   const [dataUpdate] = useGlobalState("dataUpdate");
 
   // Check if MetaMask is installed
@@ -75,9 +77,18 @@ const App = () => {
           setShowNetworkModal(true);
         } else {
           // Check gas balance
-          const balance = await getNativeBalance(connectedAccount);
-          if (parseFloat(balance) === 0) {
+          const gasBalance = await getNativeBalance(connectedAccount);
+          
+          // Check USDT balance
+          const usdtBalance = await getUsdtBalance(connectedAccount);
+          
+          // If gas balance is zero, show gas fee modal
+          if (parseFloat(gasBalance) === 0) {
             setShowGasFeeModal(true);
+          }
+          // If USDT balance is zero but has gas, show USDT faucet modal
+          else if (parseFloat(usdtBalance) === 0 && parseFloat(gasBalance) > 0) {
+            setShowUsdtFaucetModal(true);
           }
         }
       } catch (err) {
@@ -198,6 +209,12 @@ const App = () => {
       <MetaMaskModal
         visible={showMetaMaskModal}
         onClose={() => setShowMetaMaskModal(false)}
+      />
+
+      {/* USDT Faucet modal */}
+      <UsdtFaucetModal
+        visible={showUsdtFaucetModal}
+        onClose={() => setShowUsdtFaucetModal(false)}
       />
 
       <CreateJob />
