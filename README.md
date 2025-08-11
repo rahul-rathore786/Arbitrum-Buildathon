@@ -1,20 +1,24 @@
-A decentralized freelancing platform powered by blockchain and AI to ensure secure, transparent, and fair transactions between clients and freelancers.
-
-### Submission Information
-
-Submitted to the Hedera Hello Future: Origins Hackathon 2025
-
-Hackathon submission:https://dorahacks.io/buidl/30774
-Live link:https://safe-work-pay-v3.vercel.app/
-Presentation video: https://youtu.be/5vzjYtTKsVs
-
-## Project Information
+# Project Information
 
 **SafeWorkPay**
 
+A decentralized freelancing platform powered by blockchain and AI to ensure secure, transparent, and fair transactions between clients and freelancers.
+
 ---
 
-### Problem Statement
+## Submission Information
+
+Submitted to the Hedera Hello Future: Origins Hackathon 2025
+
+<!-- make a biullet list -->
+
+- Hackathon submission:https://dorahacks.io/buidl/30774
+- Live link:https://safe-work-pay-v3.vercel.app/
+- Presentation video: https://youtu.be/5vzjYtTKsVs
+
+---
+
+## Problem Statement
 
 - Freelancing platforms often face **payment disputes and trust issues**.
 - Clients may **withhold funds** even when work is completed.
@@ -24,7 +28,7 @@ Presentation video: https://youtu.be/5vzjYtTKsVs
 
 ---
 
-### Solution Overview
+## Solution Overview
 
 - **SafeWorkPay** is a **decentralized freelancing platform** powered by **blockchain and AI**.
 - Clients deposit funds into a **smart contract**, which **holds the money in escrow**.
@@ -35,7 +39,7 @@ Presentation video: https://youtu.be/5vzjYtTKsVs
 
 ---
 
-### Project Description
+## Project Description
 
 - Clients can **post projects** and **deposit funds** into smart contracts.
 - Developers **bid** on projects and **submit full projects** as they complete work.
@@ -154,7 +158,7 @@ To run the SafeWorkPay frontend, follow these steps:
 1. **Install Dependencies**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Start the Frontend**
@@ -217,10 +221,10 @@ change file name .env.example to .env and add the environment variables in the .
 ## Tools and Technologies Used
 
 - **Frontend**: React, React Router, Tailwind CSS, react-hooks-global-state, ethers.js, react-toastify
-- **Backend (Smart Contracts)**: Solidity, Hardhat, OpenZeppelin Contracts
+- **Backend (Smart Contracts)**: Solidity, Hardhat, OpenZeppelin Contracts, Node.js, Express.js, @google/generative-ai
 - **Chat Functionality**: CometChat
 - **Package Manager**: pnpm
-- **Blockchain**: Hedera
+- **Blockchain**: Hedera (Testnet)
 - **AI**: Custom AI model for code evaluation and dispute resolution (integrated with Gemini API)
 
 ## Additional Notes
