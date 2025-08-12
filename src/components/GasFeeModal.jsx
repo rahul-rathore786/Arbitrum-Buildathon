@@ -37,9 +37,10 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
         {/* Content */}
         <div className="p-6">
           <p className="text-gray-700 mb-4">
-            You need <span className="font-semibold">HBAR</span> ({DEFAULT_NETWORK.chainName} testnet
-            tokens) to pay for gas fees. Visit the {DEFAULT_NETWORK.chainName} faucet to get free
-            test tokens:
+            You need <span className="font-semibold">HBAR</span> (
+            {DEFAULT_NETWORK.chainName} testnet tokens) to pay for gas fees.
+            Visit the {DEFAULT_NETWORK.chainName} faucet to get free test
+            tokens:
           </p>
 
           {/* Wallet address section */}
@@ -66,7 +67,7 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
 
           {/* Action button */}
           <a
-            href="https://portal.hedera.com/faucet"
+            href="https://morphfaucet.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-3 px-6 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-medium rounded-lg transition-all duration-200 flex items-center justify-center mb-4"
