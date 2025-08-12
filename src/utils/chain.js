@@ -17,7 +17,7 @@ export const NETWORKS = {
     rpcUrls: ["https://mainnet.infura.io/v3/"],
     blockExplorerUrls: ["https://etherscan.io"],
   },
-  
+
   // Sepolia Testnet
   SEPOLIA: {
     chainId: "0xaa36a7",
@@ -31,7 +31,7 @@ export const NETWORKS = {
     rpcUrls: ["https://sepolia.infura.io/v3/"],
     blockExplorerUrls: ["https://sepolia.etherscan.io"],
   },
-  
+
   // Hyperion Testnet
   HYPERION: {
     chainId: "0x20A55",
@@ -45,7 +45,7 @@ export const NETWORKS = {
     rpcUrls: ["https://hyperion-testnet.metisdevops.link"],
     blockExplorerUrls: ["https://hyperion-testnet-explorer.metisdevops.link"],
   },
-  
+
   // Hedera Testnet
   HEDERA: {
     chainId: "0x128",
@@ -58,7 +58,20 @@ export const NETWORKS = {
     },
     rpcUrls: ["https://testnet.hashio.io/api"],
     blockExplorerUrls: ["https://hashscan.io/testnet"],
-  }
+  },
+  // add morph holesky
+  MORPH_HOLESKY: {
+    chainId: "0xAFA",
+    chainIdDecimal: 2810,
+    chainName: "Morph Holesky Testnet",
+    nativeCurrency: {
+      name: "Ether",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://rpc-quicknode-holesky.morphl2.io"],
+    blockExplorerUrls: ["https://explorer-holesky.morphl2.io/"],
+  },
 };
 
 /**
@@ -69,7 +82,7 @@ export const NETWORKS = {
 export const switchToNetwork = async (networkConfig) => {
   const { ethereum } = window;
   if (!ethereum) return false;
-  
+
   try {
     await ethereum.request({
       method: "wallet_switchEthereumChain",
@@ -94,7 +107,7 @@ export const switchToNetwork = async (networkConfig) => {
 export const addNetwork = async (networkConfig) => {
   const { ethereum } = window;
   if (!ethereum) return false;
-  
+
   try {
     await ethereum.request({
       method: "wallet_addEthereumChain",
@@ -114,9 +127,9 @@ export const addNetwork = async (networkConfig) => {
 export const getCurrentNetworkId = async () => {
   const { ethereum } = window;
   if (!ethereum) return null;
-  
+
   try {
-    const chainId = await ethereum.request({ method: 'eth_chainId' });
+    const chainId = await ethereum.request({ method: "eth_chainId" });
     return chainId;
   } catch (error) {
     console.error("Error getting chain ID:", error);
