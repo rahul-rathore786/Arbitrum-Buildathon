@@ -37,8 +37,8 @@ const GasFeeModal = ({ visible, onClose, walletAddress }) => {
         {/* Content */}
         <div className="p-6">
           <p className="text-gray-700 mb-4">
-            You need <span className="font-semibold">HBAR</span> (
-            {DEFAULT_NETWORK.chainName} testnet tokens) to pay for gas fees.
+            You need <span className="font-semibold">{DEFAULT_NETWORK.nativeCurrency.symbol}</span> (
+            {DEFAULT_NETWORK.chainName} tokens) to pay for gas fees.
             Visit the {DEFAULT_NETWORK.chainName} faucet to get free test
             tokens:
           </p>
