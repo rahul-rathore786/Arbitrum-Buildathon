@@ -12,9 +12,8 @@ Submitted to the Hedera Hello Future: Origins Hackathon 2025
 
 <!-- make a biullet list -->
 
-- Hackathon submission:https://dorahacks.io/buidl/30774
-- Live link:https://safe-work-pay-v3.vercel.app/
-- Presentation video: https://youtu.be/5vzjYtTKsVs
+- Live link:https://safe-work-pay-arbitrum.vercel.app/
+- Presentation video: https://youtu.be/QwiWn4BRBUA
 
 ---
 
