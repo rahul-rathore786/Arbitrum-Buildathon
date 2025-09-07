@@ -167,8 +167,8 @@ To run the SafeWorkPay frontend, follow these steps:
 
 **Note**: The smart contracts are already deployed on the Arbitrum testnet at the following addresses:
 
-- Freelance: `0x8961AeA9D0118BD1f6E0837CAa8759835A7b51A8`
-- MOCK-USDT: `0x30c7e88C3A04C6bb59d2C604A0c135447dBA4099`
+- Freelance: `0x809942a2E972873791774842334DD9BB2D9d17C5`
+- MOCK-USDT: `0xF2011cFE8E379A4A890A7f1a5CDCC61629A2FA6b`
 
 **Environment Setup**: Make sure to add your MetaMask private key, CometChat credentials, and RPC URL in the `.env` file for the application to function correctly.
 
