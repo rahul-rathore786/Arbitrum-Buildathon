@@ -72,6 +72,19 @@ export const NETWORKS = {
     rpcUrls: ["https://rpc-quicknode-holesky.morphl2.io"],
     blockExplorerUrls: ["https://explorer-holesky.morphl2.io/"],
   },
+  // add arbitrum sepolia testnet
+  ARBITRUM_SEPOLIA: {
+    chainId: "0x66EEE",
+    chainIdDecimal: 421614,
+    chainName: "Arbitrum Sepolia",
+    nativeCurrency: {
+      name: "Ether",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://sepolia-rollup.arbitrum.io/rpc"],
+    blockExplorerUrls: ["https://explorer.arbitrum.io/"],
+  },
 };
 
 /**
@@ -99,11 +112,6 @@ export const switchToNetwork = async (networkConfig) => {
   }
 };
 
-/**
- * Add a network to MetaMask
- * @param {Object} networkConfig - The network configuration object
- * @returns {Promise<boolean>} - True if successful, false otherwise
- */
 export const addNetwork = async (networkConfig) => {
   const { ethereum } = window;
   if (!ethereum) return false;

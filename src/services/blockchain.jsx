@@ -14,7 +14,7 @@ const UsdtAddress = addresses.USDT;
 const UsdtABI = UsdtAbi.abi;
 
 // Default network for the application
-const DEFAULT_NETWORK_KEY = "MORPH_HOLESKY";
+const DEFAULT_NETWORK_KEY = "ARBITRUM_SEPOLIA";
 const DEFAULT_NETWORK = NETWORKS[DEFAULT_NETWORK_KEY];
 
 let tx;
