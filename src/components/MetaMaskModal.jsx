@@ -42,8 +42,8 @@ const MetaMaskModal = ({ visible, onClose }) => {
 
           <div className="mb-6 text-gray-700">
             <p className="mb-4">
-              SafeWorkPay requires MetaMask to interact with the Hyperion
-              blockchain. Please install the MetaMask extension to continue.
+              SafeWorkPay requires MetaMask to interact with the blockchain.
+              Please install the MetaMask extension to continue.
             </p>
             <div className="bg-gray-50 p-3 rounded-md border-l-4 border-primary-400 text-sm mb-6">
               <p>

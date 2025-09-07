@@ -8,7 +8,7 @@ A decentralized freelancing platform powered by blockchain and AI to ensure secu
 
 ## Submission Information
 
-Submitted to the Hedera Hello Future: Origins Hackathon 2025
+Submitted to the Arbitrum Open House India: Online Buildathon
 
 <!-- make a biullet list -->
 
@@ -165,10 +165,10 @@ To run the SafeWorkPay frontend, follow these steps:
    pnpm start
    ```
 
-**Note**: The smart contracts are already deployed on the Hedera testnet at the following addresses:
+**Note**: The smart contracts are already deployed on the Arbitrum testnet at the following addresses:
 
-- DappWorks: `0x8961AeA9D0118BD1f6E0837CAa8759835A7b51A8`
-- USDT: `0x30c7e88C3A04C6bb59d2C604A0c135447dBA4099`
+- Freelance: `0x8961AeA9D0118BD1f6E0837CAa8759835A7b51A8`
+- MOCK-USDT: `0x30c7e88C3A04C6bb59d2C604A0c135447dBA4099`
 
 **Environment Setup**: Make sure to add your MetaMask private key, CometChat credentials, and RPC URL in the `.env` file for the application to function correctly.
 
@@ -223,7 +223,7 @@ change file name .env.example to .env and add the environment variables in the .
 - **Backend (Smart Contracts)**: Solidity, Hardhat, OpenZeppelin Contracts, Node.js, Express.js, @google/generative-ai
 - **Chat Functionality**: CometChat
 - **Package Manager**: pnpm
-- **Blockchain**: Hedera (Testnet)
+- **Blockchain**: Arbitrum (Testnet)
 - **AI**: Custom AI model for code evaluation and dispute resolution (integrated with Gemini API)
 
 ## Additional Notes
